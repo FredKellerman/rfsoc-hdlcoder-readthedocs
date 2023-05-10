@@ -132,7 +132,7 @@ Step  4 - Obtain the Avnet HDL Coder for ZCU208 SD card with examples zip file
   The SD card contents have been compiled for production silicon only.  Running production bitstreams/binaries on ES1 silicon
   may cause permanent damage!  Before downloading the SD image please verify that your ZCU208 development board has a production ZU48DR part.
   
-* `Click to download the Avnet HDL Coder for ZCU208 zip file <https://github.com/AvnetDev/hdlcoder-zcu208-zip/releases/download/v1.0.3/zcu208-hdlcoder.zip>`_
+* `Click to download the Avnet HDL Coder for ZCU208 zip file <https://github.com/AvnetDev/hdlcoder-zcu208-zip/releases/download/v1.03/zcu208-hdlcoder.zip>`_
 
 ~~~~~~~~~~~~~~~~~~~~~~~~
 Step 5 - Prepare the contents of the ZCU208 micro SD card
