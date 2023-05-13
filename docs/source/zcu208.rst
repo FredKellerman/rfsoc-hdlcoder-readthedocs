@@ -97,9 +97,9 @@ This is how they appear in Add-on Manager:
 
 .. image:: ./images_zcu208/embeddedzynqpackage.png
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Step  2 - Install Avnet RFSoC Explorer 2.0.1 or newer
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step  2 - Install at least Avnet RFSoC Explorer 2.0.2 (latest version is preferred)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. warning::
   **There is a bug in the MathWorks installer which caused v2.0.1 to add invalid support package paths.**
