@@ -35,6 +35,17 @@ For R2021b:
 
 * You do not have to install the Embedded Coder Support Package.  You may see a warning when using HDL Workflow Advisor, which you may ignore
 
+For R2022a or newer:
+
+* You may see a warning when trying to execute HDL Workflow Advisor with the included zcu208 examples
+* This is benign, Mathworks changed some of the SLX fle variables that don't directly effect the examples
+* You should be able to re-save the older example models in the newer Matlab releases and the error will go away completely
+* You can also ignore the error and then proceed through the steps in HDL Workflow Advisor
+* This could be mitigated by creating seperate example files for each release of Matlab.  However as long as the issues are not truly breaking anything, it is preferable to continue to have just one set of examples
+* Here is an example of the warning you may see:
+
+.. image:: ./images_zcu208/HdlWfaError.png
+
 ------------------
 Installation instructions
 ------------------
