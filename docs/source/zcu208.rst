@@ -1,6 +1,6 @@
-*************************
+**********************************************************************************
 Getting started with HDL Coder for the Xilinx ZCU208 RFSoC Gen 3 development board
-*************************
+**********************************************************************************
 
 -------------------
 Required hardware
@@ -14,7 +14,8 @@ Required software
 -------------------
 * Windows 10 or a Linux version that is compatible with both Xilinx Vivado and MATLAB & Simulink
 * Xilinx Vivado v2020.2 and a license for the RFSoC Gen 3 ZU48DR device
-* MATLAB version R2021a & R2021b, including the following add-ons:
+* MATLAB version R2021a & R2021b.  R2021a works without any known issues, newer versions have some warnings that seem to be benign
+* In addtion the following programs and add-ons:
     * Simulink
     * Fixed Point Designer Toolbox
     * HDL Coder
@@ -39,20 +40,24 @@ For R2022a or newer:
 
 * You may see a warning when trying to execute HDL Workflow Advisor with the included zcu208 examples
 * This is benign, Mathworks changed some of the SLX fle variables that don't directly effect the examples
-* You should be able to re-save the older example models in the newer Matlab releases and the error will go away completely
-* You can also ignore the error and then proceed through the steps in HDL Workflow Advisor
+* You should be able to re-save the older example models in the newer Matlab releases and the error will go away
+* You may also ignore the error and proceed through the steps in HDL Workflow Advisor
 * This could be mitigated by creating seperate example files for each release of Matlab.  However as long as the issues are not truly breaking anything, it is preferable to continue to have just one set of examples
-* Here is an example of the warning you may see:
+* There will be a longer error string reported in the console concerning HDLVerifierJTAGAXI.  Here is an example of the warning you may also see:
 
 .. image:: ./images_zcu208/HdlWfaError.png
 
-------------------
+-------------------------
 Installation instructions
-------------------
+-------------------------
+
+.. note::
+  The following instructions have screen grabs from earlier versions of Matlab.  Newer versions have changed some of these dialogs but
+  they are similar enough that you should be able to easily adapt.
    
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step  1 - Install MATLAB and the extra tools
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Obtain and install MATLAB 2021a with all of the add-ons listed below.
 
 .. note::
@@ -92,9 +97,9 @@ This is how they appear in Add-on Manager:
 
 .. image:: ./images_zcu208/embeddedzynqpackage.png
 
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step  2 - Install Avnet RFSoC Explorer 2.0.1 or newer
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. warning::
   **There is a bug in the MathWorks installer which caused v2.0.1 to add invalid support package paths.**
@@ -125,9 +130,9 @@ then return here to complete the rest of the HDL Coder setup instructions:
 .. warning::
   Make sure you can run RF Explorer and communicate with the ZCU208 successfully before proceeding!
 
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step  3 - Setup the ZCU208 board hardware with the XM655 RF breakout card
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Completing the steps to install and use Avnet RFSoC Explorer will ensure the ZCU208 networking is also almost correctly setup for use with HDL Coder.
 If you want to run the included examples and collect live data, the **XM655 RF breakout board must also be attached to the ZCU208**.
 See the Xilinx ZCU208 user and setup guide that came with your kit for how to do this.
@@ -136,18 +141,18 @@ See the Xilinx ZCU208 user and setup guide that came with your kit for how to do
 
 * `Click for more information about the XM655 RF breakout balun board <https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/769228974/XM650+XM655+and+CLK104+Add-On+Cards+Hardware+Description>`_ 
 
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step  4 - Obtain the Avnet HDL Coder for ZCU208 SD card with examples zip file
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. warning::
   The SD card contents have been compiled for production silicon only.  Running production bitstreams/binaries on ES1 silicon
   may cause permanent damage!  Before downloading the SD image please verify that your ZCU208 development board has a production ZU48DR part.
   
 * `Click to download the Avnet HDL Coder for ZCU208 zip file <https://github.com/AvnetDev/hdlcoder-zcu208-zip/releases/download/v1.03/zcu208-hdlcoder.zip>`_
 
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step 5 - Prepare the contents of the ZCU208 micro SD card
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Extract the prior Step's downloaded zip file contents and retain all the sub-folders of the ZCU208 HDL Coder zip file.
 Extract the contents into **any appropriate local directory on your PC, where exactly is not important**.
@@ -166,9 +171,9 @@ Next, enter and execute the installation script:
 
 After the installation script completes, a **file named interfaces** should open automatically in the MATLAB text editor.
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step 6 - Modify the ZCU208 network settings file
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. note::
   This is where you will use the IP address of the ZCU208 that you recorded while installing RF Explorer.
 
@@ -200,9 +205,9 @@ use a static IP address of 192.168.1.101:
 .. note::
   Make sure you save this text file locally and close it out of the editor.
 
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step  7 - Format a micro SD card
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Obtain a 4GB or larger micro SD card, one should have been included with the ZCU208 kit.  You may want to obtain a second card if you want to 
 retain the Avnet RFSoC Explorer SD card that you setup prior.  Sandisk or Delkin SD cards are highly recommended but other brands may also work.
 
@@ -216,9 +221,9 @@ First, use Windows or a Linux utility to format the SD card for the FAT32 format
 
 For how to do this for Linux, search the internet.  On a recent version of Ubuntu, you can either use dd or the gparted or gnome-disks utilities.
 
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step 8 - Copy the files from the local folder to the micro SD card
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Next, from where you exracted the zip file copy all the files and sub-folders **under the ./sdcard folder** onto the newly formatted micro SD card.
 
 .. note::
@@ -249,9 +254,9 @@ Wait a little while for the software to complete the boot process.  Usually this
   Issue: 'ping xxx.xxx.xxx.xxx' where xxx.xxx.xxx.xxx is the IP address you used when setting up RF Explorer.
   If the ping command fails and networking is not functioning correctly, re-check the interfaces file settings and your LAN, PC or ethernet cable.
 
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step  9 - Completing the network setup with MATLAB for HDL Coder for ZCU208
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To setup and test the network connection of the ZCU208, use the MATLAB command window to issue the following commands.
 Insert the ZCU208 IP address that was utilized for the RFSoC Explorer installation,
 insert your IP address in the format of xxx.xxx.xxx.xxx between the single quotes:
@@ -269,9 +274,9 @@ Check the connection by entering the following command:
 
 It should report: 'Connection successful'
 
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step 10 - Run the included ADC Capture demo
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 On your PC, whereever you extracted the .zip file, there will be a folder named 'examples'.
 From within MATLAB's command window or using MATLAB's file explorer gui, **change the directory into the folder examples/ADCDataCapture**
 
@@ -305,9 +310,9 @@ After starting up the demo by executing adcdemo.m, this example will capture liv
 .. note::
   This example's FPGA (PL) bitstream was pre-loaded onto the SD card.  It does not require rebuilding the FPGA design.  Subsequent examples however will.
 
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step  11 - Install Vivado 2020.2
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If you want to customize the design or re-create the FPGA (PL) bitstreams you must download and install Xilinx Vivado version 2020.2 (must be v2020.2).
 
 .. warning::
@@ -319,9 +324,9 @@ If you want to customize the design or re-create the FPGA (PL) bitstreams you mu
 .. note::
   Vitis is not required or used but you may install it also if you like.
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step 12 - Completing the HDL Coder Vivado setup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This step is nescessary for rebuilding the HDL Coder designs from within MATLAB.
 
 Locate on your Windows or Linux PC the path where Vivado 2020.2 was installed. **You will need to locate the 'bin' directory**.
@@ -347,7 +352,9 @@ If successful on a Windows platform you should see the following in the MATLAB c
 
 .. note::
   The Vivado path setting will not be saved after MATLAB is exited.  It is recommended that you add the above hdlsetuptoolpath line to MATLAB's
-  startup.m file.  To create or edit startup.m, in the MATLAB command window type and enter: edit(strcat(userpath, '/startup.m'))
+  startup.m file.  To create or edit startup.m, in the MATLAB command window type and enter: edit(strcat(userpath, '/startup.m')), or on newer 
+  releases of Matlab you may use: edit(fullfile(userpath,'startup.m')).  Also if you try to cut and paste this it is possible
+  it will not copy the correct '' chars.  If Matlab complains, replace them in the Matlab console.
 
 ----------------------------------
 Rebuilding the ADC Capture demo
