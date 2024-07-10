@@ -60,9 +60,9 @@ Required MathWorks licensed software:
   * DSP System Toolbox is optional but most of the included examples
     make use of it
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[R2024a] required MathWorks and 3rd party free software
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[For R2024a ONLY] required MathWorks and 3rd party free software
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 R2024a only requires the HDL Coder Support Package for Xilinx FPGA and SoC
 Devices
 
@@ -100,9 +100,9 @@ ZCU216 setup.  For example you may click cancel in this dialog:
   After exiting the ZCU216 installation some of the following steps below will
   fulfill the missing setup steps.
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[R2021a - R2023b] required MathWorks and 3rd party free software
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[For R2021a - R2023b ONLY] required MathWorks and 3rd party free software
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. note:: For **R2022a**
   and newer, you may see a warning when trying to execute HDL Workflow
   Advisor with the included ZCU208 examples. This is benign,
@@ -450,9 +450,9 @@ command window (your own path setting may be different):
 Rebuilding the ADC Capture demo
 -------------------------------
 .. warning::
-  R2024a MATLAB has a bug that requires unchecking a property in step 4.2.
-  You must uncheck the property, otherwise the flow will stop and report an
-  error!
+  R2024a (and possibly some earlier releases) MATLAB has a bug that requires
+  unchecking a property in step 4.2. You must uncheck the property, otherwise
+  the flow will stop and report an error!
 
   .. image:: ./images_zcu208/r2024_fix_4p2.png
 
