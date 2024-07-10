@@ -1,6 +1,6 @@
-***************************************************************************
+*********************************************************
 Introducing Avnet HDL Coder Tools for Xilinx RFSoC Boards
-***************************************************************************
+*********************************************************
 
 .. image:: ./images_zcu208/hdlcoder.png
 
@@ -13,5 +13,5 @@ the following boards:
 .. image:: ./images_zcu208/zcu208board.png
 
 .. note:: Click links above to access the documentation
-.. note:: Learn more about MathWorks HDL Coder tools: `here <https://www.mathworks.com/products/hdl-coder.html>`_
-.. note:: Learn more about Xilinx RFSoC devices: `here <https://www.xilinx.com/rfsoc>`_
+.. note:: Learn more about MathWorks HDL Coder tools: `here <https://www.mathworks.com/products/hdl-coder.html>`__
+.. note:: Learn more about Xilinx RFSoC devices: `here <https://www.xilinx.com/rfsoc>`__

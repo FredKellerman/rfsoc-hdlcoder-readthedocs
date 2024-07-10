@@ -14,7 +14,6 @@ Required hardware
 -----------------
 Required software
 -----------------
-
 * Windows 10 or a Linux version that is compatible with AMD Vivado,
   MATLAB & Simulink
 * Xilinx / AMD Vivado v2020.2 and a license for the RFSoC Gen 3 ZU48DR device
@@ -49,13 +48,11 @@ Installation instructions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step  1 - Install MATLAB and the extra tools
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 Obtain and install the listed MathWorks tools, add-ons and 3rd party add-ons.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Required MathWorks licensed software:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
   * MATLAB & Simulink
   * Fixed Point Designer Toolbox
   * HDL Coder
@@ -66,28 +63,46 @@ Required MathWorks licensed software:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 [R2024a] required MathWorks and 3rd party free software
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+R2024a only requires the HDL Coder Support Package for Xilinx FPGA and SoC
+Devices
 
-  * SoCB and HDL Coder for Zynq and MPSoC
+Use the Add-On Manager from within MATLAB to install:
 
-Use the Add-On Manager from within MATLAB:
 .. image:: ./images_zcu208/r2024_addon.png
 
+After the support package downloads the content, a dialog will open prompting
+for further setup.  The ZCU208 requires libiio software libaries, this
+must be installed using the MathWorks ZCU216 Board Setup Installer.
+
 When prompted, select the ZCU216 board from the list:
+
 .. image:: ./images_zcu208/r2024_zcu216.png
 
-Follow through with the remaining steps:
+Follow through with some of the additional steps, the only critical one is to
+select the following item.  It is recommended to select only what is shown
+below unless you also want to setup a ZCU216 along side the ZCU208.
 
-.. image:: ./images_zcu208/r2024_zcu216_next1.png
-.. image:: ./images_zcu208/r2024_zcu216_next2.png
-.. image:: ./images_zcu208/r2024_zcu216_next3.png
+.. image:: ./images_zcu208/r2024_libiio.png
 
-Cancel and exit after the following step:
-.. image:: ./images_zcu208/r2024_zcu216_end.png
+Here are more examples of features that should not be selected, unless again,
+you also have or plan on using a ZCU216 board along side the ZCU208.
+
+.. image:: ./images_zcu208/r2024_skip_network.png
+
+.. image:: ./images_zcu208/r2024_skip_sd.png
+
+After installing libiio you may cancel or exit anytime the remainder of the
+ZCU216 setup.  For example you may click cancel in this dialog:
+
+.. image:: ./images_zcu208/r2024_exit.png
+
+.. note::
+  After exiting the ZCU216 installation some of the following steps below will
+  fulfill the missing setup steps.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 [R2021a - R2023b] required MathWorks and 3rd party free software
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 .. note:: For **R2022a**
   and newer, you may see a warning when trying to execute HDL Workflow
   Advisor with the included ZCU208 examples. This is benign,
@@ -326,8 +341,8 @@ It should report: 'Connection successful'
 Step 10 - Run the included ADC Capture demo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. note::
-  All included .slx files **require R2024a** or newer.  Prior version users of MATLAB
-  must use the .slx.r2021a files.
+  All included .slx files **require R2024a** or newer.  Prior version users of
+  MATLAB must use the .slx.r2021a files.
 
 On your PC, wherever you extracted the .zip file, there will be a folder named
 'examples'. From within MATLAB's command window or using MATLAB's file explorer
@@ -439,7 +454,7 @@ Rebuilding the ADC Capture demo
   You must uncheck the property, otherwise the flow will stop and report an
   error!
 
-  .. image:: ./images_zcu208/r2024a_uncheck.png
+  .. image:: ./images_zcu208/r2024_fix_4p2.png
 
 If closed, re-open the Simulink design again by double clicking on the
 .slx file.
@@ -508,18 +523,22 @@ hardware design if you like.
 
 You may follow a more detailed explanation here:  **Coming soon...**
 
-.. note:: Learn more about MathWorks HDL Coder tools: `here <https://www.mathworks.com/products/hdl-coder.html>`_
+.. note::
+  Learn more about MathWorks HDL Coder tools:
+  `here <https://www.mathworks.com/products/hdl-coder.html>`_
 
 ---------------------
 All included examples
 ---------------------
 
 .. note::
-  To rebuild any of the additional examples the same procedure can be followed as used for the ADC Capture demo above.
+  To rebuild any of the additional examples the same procedure can be followed
+  as used for the ADC Capture demo above.
 
 .. note::
-  All examples are setup to use Tile 0 DAC 0 and Tile 0 ADC 0.  Except for MTS which is documented below.
-  You may change these settings or any other settings to suit your own needs.
+  All examples are setup to use Tile 0 DAC 0 and Tile 0 ADC 0.  Except for MTS
+  which is documented below. You may change these settings or any other
+  settings to suit your own needs.
 
 **examples/ADCDataCapture - ADC Capture**
 
