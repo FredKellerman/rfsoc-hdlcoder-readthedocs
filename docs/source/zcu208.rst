@@ -450,9 +450,11 @@ command window (your own path setting may be different):
 Rebuilding the ADC Capture demo
 -------------------------------
 .. warning::
-  R2024a (and possibly some earlier releases) MATLAB has a bug that requires
-  unchecking a property in step 4.2. You must uncheck the property, otherwise
-  the flow will stop and report an error!
+  R2024a (and possibly R2023b) has a bug that requires
+  SoC Blockset to be installed. If you do not have SoC Blockset,
+  you must uncheck a property as shown below. Otherwise the flow will stop and
+  report an error!  Unchecking the propery does not affect HDL Coder in any
+  other manner.
 
   .. image:: ./images_zcu208/r2024_fix_4p2.png
 
