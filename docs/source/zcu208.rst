@@ -141,6 +141,13 @@ Use the Add-On Manager to search, this is how they appear:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step  2 - Install Avnet RFSoC Explorer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. warning:: For **R2024a release**
+  You must install RFSoC Explorer v3.1 or newer
+
+.. warning:: For **R2023 and older releases**
+  You must install a version **older** than v3.1
+
 From within MATLAB, once again open the Add-on explorer.
 And search for 'Avnet RFSoC Explorer', then install it:
 
@@ -341,7 +348,7 @@ It should report: 'Connection successful'
 Step 10 - Run the included ADC Capture demo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. note::
-  All included .slx files **require R2024a** or newer.  Prior version users of
+  All included .slx files **require R2023b** or newer.  Prior version users of
   MATLAB must use the .slx.r2021a files.
 
 On your PC, wherever you extracted the .zip file, there will be a folder named
