@@ -143,13 +143,14 @@ Use the Add-On Manager to search, this is how they appear:
 Step  2 - Install Avnet RFSoC Explorer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. warning:: For **R2024a release**
-  You must install RFSoC Explorer v3.1.1 or newer
+.. warning:: For **Matlab R2024a release**,
+  you must install RFSoC Explorer v3.1.1 or newer
 
-.. warning:: For **R2023 and older releases**
-  You must install a version **older** than v3.1.1.
-  Double check the the MathWorks Add-On manager notes
-  for RFSoC Explorer Matlab compatiblity.
+.. warning:: For **Matlab R2023 and older releases**.
+  For R2023b you may use v3.1.0 or v3.1.1, but for R2023a and older
+  you must install older compatible versions. Double check Avnet's
+  notes in MathWorks Add-On manager for RFSoC Explorer Matlab
+  compatiblity.
 
 From within MATLAB, once again open the Add-on explorer.
 And search for 'Avnet RFSoC Explorer', then install it:
@@ -235,7 +236,7 @@ Next, enter and execute the installation script:
 After the installation script completes, a **file named interfaces** should
 open automatically in the MATLAB text editor.
 
-For R2024a and newer Matlab versions only you will need to manually open and edit the interfaces
+For R2024a and newer Matlab versions only, you will need to manually open and edit the interfaces
 file:
 
 .. code-block:: matlab
