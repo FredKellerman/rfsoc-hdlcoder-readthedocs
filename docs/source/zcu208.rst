@@ -24,8 +24,9 @@ Required software
     * HDL Coder
     * MATLAB Coder
     * DSP System Toolbox is optional but most of the included examples use it
-* Avnet RFSoC Explorer
-    * For MathWorks R2024a tools you must use v3.1 or newer of RFSoC Explorer
+    * Avnet RFSoC Explorer
+    * For MathWorks R2024a tools you must use v3.1.1 or newer of RFSoC Explorer
+      (**do not use v3.1.0 or older for MathWorks tools R2024a or newer**)
     * Double check documentation to determine which MATLAB versions are
       supported
     * You MAY have to install additonal toolboxes for RFSoC Explorer
@@ -143,10 +144,12 @@ Step  2 - Install Avnet RFSoC Explorer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. warning:: For **R2024a release**
-  You must install RFSoC Explorer v3.1 or newer
+  You must install RFSoC Explorer v3.1.1 or newer
 
 .. warning:: For **R2023 and older releases**
-  You must install a version **older** than v3.1
+  You must install a version **older** than v3.1.1.
+  Double check the the MathWorks Add-On manager notes
+  for RFSoC Explorer Matlab compatiblity.
 
 From within MATLAB, once again open the Add-on explorer.
 And search for 'Avnet RFSoC Explorer', then install it:
@@ -214,6 +217,15 @@ the contents:
 
   cd 'to the zip file contents directory'
 
+.. error::
+  Do NOT execute installhdl208.m IF you are using RFSoC Explorer version v3.1.1
+  or newer! If you are using Matlab R2024a or newer you MUST use v3.1.1 or newer
+  ALSO! Explanation: MathWorks has changed APIs somewhat over the years, in R2024a the
+  plugin interface changed for RFSoC HDL Coder.  RFSoC Explorer 3.1.1 suports both
+  R2023b and r2024a and now conditionally adds the correct plugin version.  The install
+  script would interfere with this.  The installhdl208.m script is left behind for
+  users that are using older matlab and RFSoC Explorer versions only.
+
 Next, enter and execute the installation script:
 
 .. code-block:: matlab
@@ -222,6 +234,13 @@ Next, enter and execute the installation script:
 
 After the installation script completes, a **file named interfaces** should
 open automatically in the MATLAB text editor.
+
+For R2024a and newer Matlab versions only you will need to manually open and edit the interfaces
+file:
+
+.. code-block:: matlab
+
+  edit('./sdcard/interfaces')
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step 6 - Modify the ZCU208 network settings file
